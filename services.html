@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Betasec Penetration Testing</title>
+  <meta name="description" content="Betasec offers web app, infrastructure, cloud, mobile, social engineering and red team penetration testing services. UK-based, senior engineers only." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    .page-hero {
+      padding: 80px 60px 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-list { display: flex; flex-direction: column; gap: 0; }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      padding: 64px 60px;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+      transition: background 0.2s;
+    }
+
+    .service-block:hover { background: rgba(13,17,32,0.5); }
+
+    .service-left {}
+
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .service-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--blue-dim);
+      border: 1px solid var(--border2);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      color: var(--blue-light);
+      margin-bottom: 20px;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-bright);
+      margin-bottom: 10px;
+    }
+
+    .service-short { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+    .service-right {}
+
+    .service-desc {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .detail-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 16px;
+    }
+
+    .detail-box-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .detail-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .detail-list li {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .detail-list li::before {
+      content: '→';
+      color: var(--blue-light);
+      flex-shrink: 0;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    .service-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--blue-light);
+      font-weight: 500;
+      transition: gap 0.2s;
+    }
+
+    .service-cta:hover { gap: 12px; }
+
+    /* DELIVERABLES SECTION */
+    .deliverables {
+      padding: 80px 60px;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .deliv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .deliv-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 22px;
+    }
+
+    .deliv-icon { font-size: 22px; color: var(--blue-light); margin-bottom: 16px; }
+    .deliv-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--text-bright); margin-bottom: 8px; }
+    .deliv-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+
+    /* PRICING SECTION */
+    .pricing {
+      padding: 80px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .pricing-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 26px;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--blue);
+      background: var(--bg3);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 24px;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--blue);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pricing-tier { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--blue-light); margin-bottom: 8px; }
+    .pricing-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--text-bright); margin-bottom: 6px; }
+    .pricing-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
+    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .pricing-list li { font-size: 13px; color: var(--text); display: flex; align-items: flex-start; gap: 8px; }
+    .pricing-list li::before { content: '✓'; color: var(--blue-light); flex-shrink: 0; font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 56px 24px; }
+      .service-block { grid-template-columns: 1fr; gap: 24px; padding: 48px 24px; }
+      .service-detail-grid { grid-template-columns: 1fr; }
+      .deliv-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .deliverables { padding: 56px 24px; }
+      .pricing { padding: 56px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <rect width="34" height="34" rx="7" fill="#0d1630"/>
+      <path d="M17 5L29 11.5V22.5L17 29L5 22.5V11.5L17 5Z" stroke="#1d4ed8" stroke-width="1.5" fill="none"/>
+      <path d="M17 5L29 11.5V22.5L17 29L5 22.5V11.5L17 5Z" fill="#0d1a3a" opacity="0.5"/>
+      <circle cx="17" cy="17" r="4" fill="#1d4ed8" opacity="0.6"/>
+      <circle cx="17" cy="17" r="2" fill="#3b82f6"/>
+      <line x1="17" y1="10" x2="17" y2="13" stroke="#3b82f6" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+      <line x1="17" y1="21" x2="17" y2="24" stroke="#3b82f6" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+      <line x1="10" y1="17" x2="13" y2="17" stroke="#3b82f6" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+      <line x1="21" y1="17" x2="24" y2="17" stroke="#3b82f6" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    </svg>
+    <div class="logo-text">BETA<span>SEC</span></div>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="methodology.html">Methodology</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Request a Scope</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">// Penetration Testing Services</div>
+  <div class="section-title fade-up">Every attack surface.<br>Every engagement, done right.</div>
+  <div class="section-sub fade-up-d1">Each service is delivered by senior engineers, scoped precisely, and backed by a clear report with free re-testing. We don't cut corners — your risk is too important.</div>
+</section>
+
+<div class="services-list">
+
+  <!-- WEB APP -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 01</div>
+      <div class="service-icon-wrap"><i class="ti ti-world" aria-hidden="true"></i></div>
+      <div class="service-name">Web Application Testing</div>
+      <div class="service-short">The most requested engagement — manual testing of your web apps, APIs, and business logic.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">Web applications are the front door most attackers try first. We go beyond automated scanners — every vulnerability is manually validated, chained where possible, and documented with real-world impact. We test authentication flows, session management, data exposure, injection points, and the business logic that scanners never reach.</p>
+      <div class="service-tags">
+        <span class="tag">OWASP Top 10</span><span class="tag">Auth bypass</span><span class="tag">SQL / NoSQL injection</span>
+        <span class="tag">XSS & CSRF</span><span class="tag">API security</span><span class="tag">Business logic</span>
+        <span class="tag">IDOR</span><span class="tag">File upload bypass</span><span class="tag">SSRF</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">What we test</div>
+          <ul class="detail-list">
+            <li>Authentication & session management</li>
+            <li>Input validation & injection</li>
+            <li>Access control & privilege escalation</li>
+            <li>API endpoints (REST/GraphQL)</li>
+            <li>Third-party integrations</li>
+            <li>Business logic flaws</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Standards followed</div>
+          <ul class="detail-list">
+            <li>OWASP Testing Guide v4.2</li>
+            <li>OWASP API Security Top 10</li>
+            <li>PTES (Penetration Testing Execution Standard)</li>
+            <li>CVSS v3.1 scoring</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Request a web app assessment <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- INFRASTRUCTURE -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 02</div>
+      <div class="service-icon-wrap"><i class="ti ti-server" aria-hidden="true"></i></div>
+      <div class="service-name">Infrastructure & Network</div>
+      <div class="service-short">Internal and external network assessments, from perimeter to domain controller.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">Network vulnerabilities are often less visible but more damaging. We assess your external perimeter, internal segmentation, Active Directory configuration, and the paths an attacker could walk from initial foothold to domain admin. We simulate real-world intrusion — not just scan for CVEs.</p>
+      <div class="service-tags">
+        <span class="tag">Active Directory</span><span class="tag">Kerberoasting</span><span class="tag">Pass-the-hash</span>
+        <span class="tag">Lateral movement</span><span class="tag">Network segmentation</span><span class="tag">VPN review</span>
+        <span class="tag">Firewall config</span><span class="tag">SMB relay</span><span class="tag">DNS poisoning</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">Scope options</div>
+          <ul class="detail-list">
+            <li>External perimeter assessment</li>
+            <li>Internal network assessment</li>
+            <li>Active Directory audit</li>
+            <li>Firewall & ACL review</li>
+            <li>Network segmentation test</li>
+            <li>VPN & remote access review</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Standards followed</div>
+          <ul class="detail-list">
+            <li>PTES</li>
+            <li>NIST SP 800-115</li>
+            <li>CIS Benchmarks</li>
+            <li>MITRE ATT&CK framework</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Request an infrastructure assessment <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- CLOUD -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 03</div>
+      <div class="service-icon-wrap"><i class="ti ti-cloud" aria-hidden="true"></i></div>
+      <div class="service-name">Cloud Security Review</div>
+      <div class="service-short">Configuration audits for AWS, Azure, and GCP environments — beyond what cloud-native tools catch.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">Cloud misconfigurations cause some of the biggest breaches in recent years — not exploits, just mistakes. We manually review your cloud environment for IAM over-permissions, public S3 buckets, exposed metadata services, insecure container configurations, and privilege escalation paths unique to cloud platforms.</p>
+      <div class="service-tags">
+        <span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span>
+        <span class="tag">IAM analysis</span><span class="tag">S3 / Blob exposure</span><span class="tag">Lambda security</span>
+        <span class="tag">Container security</span><span class="tag">Secrets management</span><span class="tag">Terraform review</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">What we audit</div>
+          <ul class="detail-list">
+            <li>IAM policies & role chains</li>
+            <li>Storage permissions (S3, Blob, GCS)</li>
+            <li>Compute & serverless configs</li>
+            <li>Network security groups & VPC</li>
+            <li>Secrets & key management</li>
+            <li>Logging & monitoring gaps</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Standards followed</div>
+          <ul class="detail-list">
+            <li>CIS AWS / Azure / GCP Benchmarks</li>
+            <li>AWS Well-Architected Security</li>
+            <li>CSA Cloud Controls Matrix</li>
+            <li>MITRE ATT&CK for Cloud</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Request a cloud review <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 04</div>
+      <div class="service-icon-wrap"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+      <div class="service-name">Mobile Application Testing</div>
+      <div class="service-short">iOS and Android assessments covering the full attack surface — client, server, and transport layer.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">Mobile apps carry sensitive data and often connect to the same backend APIs as your web platform. We assess the client application through static and dynamic analysis, intercept and manipulate traffic, probe the API endpoints the app relies on, and check for data stored insecurely on-device. Both black-box and white-box assessments available.</p>
+      <div class="service-tags">
+        <span class="tag">iOS & Android</span><span class="tag">Reverse engineering</span><span class="tag">MITM / SSL pinning</span>
+        <span class="tag">Insecure storage</span><span class="tag">API testing</span><span class="tag">Runtime manipulation</span>
+        <span class="tag">Deep link abuse</span><span class="tag">Certificate validation</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">What we test</div>
+          <ul class="detail-list">
+            <li>Static binary analysis</li>
+            <li>Dynamic runtime analysis</li>
+            <li>Network traffic interception</li>
+            <li>Local data storage review</li>
+            <li>Backend API security</li>
+            <li>Authentication & session handling</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Standards followed</div>
+          <ul class="detail-list">
+            <li>OWASP MASVS</li>
+            <li>OWASP Mobile Testing Guide</li>
+            <li>PTES</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Request a mobile assessment <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- SOCIAL ENGINEERING -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 05</div>
+      <div class="service-icon-wrap"><i class="ti ti-user-check" aria-hidden="true"></i></div>
+      <div class="service-name">Social Engineering</div>
+      <div class="service-short">Testing your people and processes — the human layer that technology alone can't protect.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">The most sophisticated firewall can be bypassed by one employee clicking a link. We design and execute realistic social engineering campaigns — from targeted spear-phishing emails to phone-based vishing attacks — to measure your organisation's susceptibility and awareness levels, without embarrassing or punishing your staff.</p>
+      <div class="service-tags">
+        <span class="tag">Spear phishing</span><span class="tag">Bulk phishing</span><span class="tag">Vishing</span>
+        <span class="tag">Pretexting</span><span class="tag">Physical access</span><span class="tag">USB drops</span>
+        <span class="tag">OSINT harvesting</span><span class="tag">Awareness metrics</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">Campaign types</div>
+          <ul class="detail-list">
+            <li>Targeted spear-phishing</li>
+            <li>Mass phishing simulation</li>
+            <li>Vishing (phone pretexting)</li>
+            <li>Physical perimeter testing</li>
+            <li>Rogue USB/device drops</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Outcomes delivered</div>
+          <ul class="detail-list">
+            <li>Click / submission rate metrics</li>
+            <li>Employee awareness scoring</li>
+            <li>Process gap identification</li>
+            <li>Training recommendations</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Request a social engineering campaign <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <!-- RED TEAM -->
+  <div class="service-block reveal">
+    <div class="service-left">
+      <div class="service-num">SERVICE 06</div>
+      <div class="service-icon-wrap"><i class="ti ti-target" aria-hidden="true"></i></div>
+      <div class="service-name">Red Team Operations</div>
+      <div class="service-short">Full-scope adversary simulation — the most realistic test of your security posture.</div>
+    </div>
+    <div class="service-right">
+      <p class="service-desc">A red team engagement goes beyond a standard pentest. We emulate a sophisticated adversary across multiple vectors simultaneously — phishing your staff, attacking your perimeter, moving through your network — all while testing whether your blue team detects and responds. The goal isn't to find vulnerabilities; it's to answer the real question: could an attacker achieve their objective against you?</p>
+      <div class="service-tags">
+        <span class="tag">Multi-vector campaigns</span><span class="tag">C2 infrastructure</span><span class="tag">Assumed breach</span>
+        <span class="tag">Detection testing</span><span class="tag">Exfiltration simulation</span><span class="tag">Persistence</span>
+        <span class="tag">Blue team evaluation</span><span class="tag">Objective-based</span>
+      </div>
+      <div class="service-detail-grid">
+        <div class="detail-box">
+          <div class="detail-box-label">Engagement phases</div>
+          <ul class="detail-list">
+            <li>Initial access (multi-vector)</li>
+            <li>Persistence & privilege escalation</li>
+            <li>Lateral movement & discovery</li>
+            <li>Objective achievement</li>
+            <li>Blue team detection assessment</li>
+          </ul>
+        </div>
+        <div class="detail-box">
+          <div class="detail-box-label">Frameworks used</div>
+          <ul class="detail-list">
+            <li>MITRE ATT&CK</li>
+            <li>TIBER-EU (where applicable)</li>
+            <li>CBEST (UK financial sector)</li>
+            <li>Custom adversary profiles</li>
+          </ul>
+        </div>
+      </div>
+      <a href="contact.html" class="service-cta">Discuss a red team engagement <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+</div>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="eyebrow">// Every engagement includes</div>
+  <div class="section-title">What you always get.</div>
+  <div class="deliv-grid">
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+      <div class="deliv-title">Executive Summary</div>
+      <div class="deliv-desc">A clear, jargon-free summary of what was found, the business risk, and what needs to happen — written for your leadership team.</div>
+    </div>
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-code" aria-hidden="true"></i></div>
+      <div class="deliv-title">Technical Report</div>
+      <div class="deliv-desc">Full vulnerability details, evidence, reproduction steps, and prioritised remediation guidance for your engineering team.</div>
+    </div>
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+      <div class="deliv-title">Free Re-test</div>
+      <div class="deliv-desc">Once you've remediated, we validate your fixes and confirm closure — included in every engagement at no extra cost.</div>
+    </div>
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-shield" aria-hidden="true"></i></div>
+      <div class="deliv-title">Signed NDA & RoE</div>
+      <div class="deliv-desc">Non-disclosure agreement and rules of engagement are signed before any testing begins. Your confidentiality is protected from day one.</div>
+    </div>
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div class="deliv-title">CVSS Risk Scoring</div>
+      <div class="deliv-desc">Every finding is scored using CVSS v3.1 so your team can prioritise remediation by actual risk, not perceived severity.</div>
+    </div>
+    <div class="deliv-card reveal">
+      <div class="deliv-icon"><i class="ti ti-headset" aria-hidden="true"></i></div>
+      <div class="deliv-title">Debrief Call</div>
+      <div class="deliv-desc">A walkthrough session with your team to explain findings, answer questions, and discuss remediation strategy before the engagement closes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING APPROACH -->
+<section class="pricing">
+  <div class="eyebrow">// Pricing</div>
+  <div class="section-title">Transparent, fixed-price quotes.</div>
+  <div class="section-sub">We don't bill by the hour and surprise you at the end. Every engagement gets a fixed-price proposal before work begins. Pricing depends on scope, complexity, and duration.</div>
+  <div class="pricing-grid">
+    <div class="pricing-card reveal">
+      <div class="pricing-tier">Focused</div>
+      <div class="pricing-title">Single-scope</div>
+      <div class="pricing-desc">Ideal for startups and SMEs needing a targeted assessment of one specific area.</div>
+      <ul class="pricing-list">
+        <li>One service area</li>
+        <li>Up to 5 days testing</li>
+        <li>Executive + technical report</li>
+        <li>Free re-test</li>
+        <li>Debrief call</li>
+      </ul>
+      <a href="contact.html" class="btn-ghost" style="width:100%;text-align:center;display:block">Get a quote →</a>
+    </div>
+    <div class="pricing-card featured reveal">
+      <div class="pricing-badge">Most popular</div>
+      <div class="pricing-tier">Comprehensive</div>
+      <div class="pricing-title">Multi-scope</div>
+      <div class="pricing-desc">For growing businesses that need broader coverage across several attack surfaces.</div>
+      <ul class="pricing-list">
+        <li>Two or more service areas</li>
+        <li>5–15 days testing</li>
+        <li>Executive + technical reports</li>
+        <li>Free re-test on all findings</li>
+        <li>Debrief call</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <a href="contact.html" class="btn-primary" style="width:100%;text-align:center;display:block">Get a quote →</a>
+    </div>
+    <div class="pricing-card reveal">
+      <div class="pricing-tier">Strategic</div>
+      <div class="pricing-title">Red team</div>
+      <div class="pricing-desc">Full-scope adversary simulation for organisations with mature security programmes.</div>
+      <ul class="pricing-list">
+        <li>Full multi-vector campaign</li>
+        <li>2–6 weeks engagement</li>
+        <li>Objective-based scoping</li>
+        <li>Blue team evaluation</li>
+        <li>Executive & board briefing</li>
+        <li>Ongoing access for questions</li>
+      </ul>
+      <a href="contact.html" class="btn-ghost" style="width:100%;text-align:center;display:block">Discuss scope →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:80px 60px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:24px;">
+  <div class="eyebrow">// Start today</div>
+  <div class="section-title">Not sure which service you need?</div>
+  <p style="font-size:15px;color:var(--text-muted);max-width:440px;line-height:1.8;">Tell us what you're building or protecting — we'll recommend the right scope and send a proposal within 48 hours.</p>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+    <a href="contact.html" class="btn-primary">Request a Scope →</a>
+    <a href="methodology.html" class="btn-ghost">How we work</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2025 Betasec Ltd · Registered in England & Wales · ICO Registered</div>
+  <div class="footer-right">
+    <a href="mailto:contact@betasec.me">contact@betasec.me</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
