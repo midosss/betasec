@@ -295,7 +295,7 @@
       </div>
     </div>
 
-    <form class="contact-form" id="contact-form" novalidate>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/mdavekvd" method="POST" novalidate>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="fname">First name</label>
@@ -518,17 +518,26 @@
   const successMsg = document.getElementById('success-msg');
   const submitBtn = document.getElementById('submit-btn');
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    // Simulate send (replace with Formspree/Netlify Forms/EmailJS in production)
-    setTimeout(() => {
+    const data = new FormData(form);
+
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
       form.style.display = 'none';
       successMsg.classList.add('show');
-      window.scrollTo({ top: form.parentElement.offsetTop - 100, behavior: 'smooth' });
-    }, 1200);
+    } else {
+      submitBtn.textContent = 'Send failed — try emailing us directly';
+      submitBtn.disabled = false;
+    }
   });
 </script>
 </body>
